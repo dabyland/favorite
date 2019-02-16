@@ -23,7 +23,7 @@
   <body>
     <div class="container">
       <div class="inputs">
-        <form class="form" name="LoginForm">
+        <form method="POST" class="form" name="LoginForm">
           <div class="email">
             <div class="mdl-textfield mdl-js-textfield">
                 <input 
@@ -40,6 +40,7 @@
                   class="mdl-textfield__input" 
                   type="text" 
                   name="username" 
+                  maxlength="15"
                   required pattern="\w+"
                 >
                 <label class="mdl-textfield__label">Username</label>
@@ -67,6 +68,7 @@
                   title="Passwords must match"
                   name="confirmPassword"
                   required
+                  onchange="this.setCustomValidity(this.validity.patternMismatch ? this.title : '');"
                 >
                 <label class="mdl-textfield__label">Confirm Password</label>
             </div>
