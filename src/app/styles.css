@@ -1,0 +1,24 @@
+html, body {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  background: linear-gradient(to bottom, rgb(174, 245, 241) 0%, rgb(238, 229, 233) 100%);
+}
+
+.form {
+  display: table;
+}
+
+.submit-button {
+  text-align: center;
+  vertical-align: bottom;
+}
+
+.mdl-textfield__label {
+  color: rgb(121, 121, 121);
+}
