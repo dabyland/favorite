@@ -10,6 +10,15 @@ body {
   background: linear-gradient(to bottom, rgb(174, 245, 241) 0%, rgb(238, 229, 233) 100%);
 }
 
+.title {
+  margin: auto;
+}
+
+.tab-content {
+  margin: auto;
+  top: 20%;
+}
+
 .form {
   display: table;
 }
