@@ -1,5 +1,5 @@
-const APP_PREFIX = 'Favorite_'     // Identifier for this app (this needs to be consistent across every cache update)
-const VERSION = 'version_01'       // Version of the off-line cache (change this value everytime you want to update cache)
+const APP_PREFIX = 'Favorite_' // Identifier for this app (this needs to be consistent across every cache update)
+const VERSION = 'version_01' // Version of the off-line cache (change this value everytime you want to update cache)
 const CACHE_NAME = APP_PREFIX + VERSION
 const IMAGE_CACHE = 'IMAGE_CACHE'
 const URLS = [
@@ -11,13 +11,12 @@ const URLS = [
   '/src/app/home/service-worker.js',
   '/src/app/home/styles.css'
 ]
-const images = []
 
 // Respond with cached resources
 self.addEventListener('fetch', event => {
-  let requestUrl = new URL(event.request.url);
+  let requestUrl = new URL(event.request.url)
 
-  if (requestUrl.pathname.includes("/photo")) {
+  if (requestUrl.pathname.includes('/photo')) {
     event.respondWith(
       // Check the cache if a jpeg is cached already
       caches.match(event.request)
@@ -26,11 +25,11 @@ self.addEventListener('fetch', event => {
             return response
           }
           // Fetch the jpeg from server and store it in cache
-  
+
           // We should not touch the original request object that will used by browser
           // so we need to clone the request.
           let fetchRequest = event.request.clone()
-  
+
           // Send request to server for resource
           return fetch(fetchRequest)
             .then(response => {
@@ -38,25 +37,20 @@ self.addEventListener('fetch', event => {
               if (!response) {
                 return response
               }
-  
+
               // we should not touch the original response object that will send to browser
               // so need to clone the response.
               let cacheResponse = response.clone()
-  
+
               // open the cache and save the jpeg file against it's request
               caches.open(IMAGE_CACHE).then(cache => {
                 cache.put(event.request, cacheResponse)
               })
-  
+
               return response
             })
         })
     )
-    // caches.open(IMAGE_CACHE).then(cache => {
-    //   console.log('installing image cache: ' + IMAGE_CACHE)
-    //   console.log("IMAGES", images)
-    //   return cache.add(requestUrl)
-    // })
   }
   console.log('fetch request: ' + event.request.url)
   event.respondWith(
@@ -64,7 +58,7 @@ self.addEventListener('fetch', event => {
       if (request) { // if cache is available, respond with cache
         console.log('responding with cache: ' + event.request.url)
         return request
-      } else {       // if there are no cache, try fetching request
+      } else { // if there are no cache, try fetching request
         console.log('file is not cached, fetching: ' + event.request.url)
         return fetch(event.request)
       }
