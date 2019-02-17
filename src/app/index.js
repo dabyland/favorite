@@ -28,7 +28,6 @@ function authenticateUser(form) {
       alert("The information entered does not match any profile. Please try again");
     }
   }
-  alert("We cannot find an account matching the entered information. Please try signing up before logging in.")
   return false;
 }
 
