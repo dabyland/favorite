@@ -1,3 +1,13 @@
+window.addEventListener("load", () => {
+  // On successful load of document, register serviceWorker
+  window.navigator.serviceWorker.register("service-worker.js")
+  .then(register => {
+    console.log("Registered serviceWorker", register);
+  }).catch(error => {
+    console.log("Failed to register serviceWorker", error);
+  });
+});
+
 const imagesGenerated = 15; // how many gallery items you want on the screen
 const numImagesAvailable = 250;  // how many total images are in the collection you are pulling from
 const imageWidth = 240; // your desired image width in pixels
