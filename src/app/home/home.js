@@ -44,8 +44,15 @@ function renderGalleryItem (randomNumber) {
     })
 }
 
-for (let i = 0; i < imagesGenerated; i++) {
-  let randomImageIndex = Math.floor(Math.random() * numImagesAvailable)
+const userProfile = JSON.parse(localStorage.getItem('user_profile'))
 
-  renderGalleryItem(randomImageIndex)
+if (!userProfile) {
+  alert('User unauthorized. Please try signing up and logging in.')
+  window.location.href = '../index.html'
+} else {
+  for (let i = 0; i < imagesGenerated; i++) {
+    let randomImageIndex = Math.floor(Math.random() * numImagesAvailable)
+  
+    renderGalleryItem(randomImageIndex)
+  }
 }
