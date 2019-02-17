@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
+    <link rel="canonical" href="https://dabyland.github.io/favorite/" />
     <!-- Libraries -->
     <link rel="stylesheet"
       href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -23,6 +23,12 @@
     <title text-align="center">favorite</title>
   </head>
   <body>
+    <script>
+    // register ServiceWorker, remember to use absolute path!
+    if (navigator.serviceWorker) {
+      navigator.serviceWorker.register('/src/app/sw.js', { scope: '/src/app/' })
+    }
+    </script>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header
       mdl-layout--fixed-tabs">
       <header class="mdl-layout__header">
