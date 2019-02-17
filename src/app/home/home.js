@@ -23,6 +23,7 @@ function favoriteImage (image) {
   `
 
   document.querySelector('.favorites').appendChild(favoritedImage)
+  alert('Favorited image')
 }
 
 function renderGalleryItem (randomNumber) {

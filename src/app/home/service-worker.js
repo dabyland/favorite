@@ -5,13 +5,6 @@ self.addEventListener('install', event => {
 })
 
 self.addEventListener('fetch', event => {
-  let requestUrl = new URL(event.request.url)
-
-  if (!requestUrl.pathname.includes('/photo')) {
-    // Return if the request is not a jpeg file.
-    return fetch(event.request)
-  }
-
   event.respondWith(
     // Check the cache if a jpeg is cached already
     caches.match(event.request)
@@ -29,7 +22,7 @@ self.addEventListener('fetch', event => {
         return fetch(fetchRequest)
           .then(response => {
             // return when the request is not fulfilled or request is not a same origin
-            if (!response || !response.status !== 200 || response.type !== 'basic') {
+            if (!response) {
               return response
             }
 
