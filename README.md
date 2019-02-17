@@ -14,7 +14,7 @@ This will install http-server globally so that it may be run from the command li
 
 After installing, run the following command:
 
-`http-server . -p 8000`
+`http-server . -p 8000 -c-1`
 
 You should notice your terminal starting `http-server` and now listening on port 8000. 
 Go to `lhttp://localhost:8000/src/app/` and you should be prompted with the initial screen (Sign Up & Login).
