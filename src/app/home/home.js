@@ -45,6 +45,10 @@ function renderGalleryItem (randomNumber) {
     })
 }
 
+function logout() {
+  window.location.href = '../index.html'
+}
+
 const userProfile = JSON.parse(localStorage.getItem('user_profile'))
 
 if (!userProfile) {

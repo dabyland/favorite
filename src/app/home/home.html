@@ -29,6 +29,16 @@
         <div class="mdl-layout__header-row">
           <!-- Title -->
           <span class="title mdl-layout-title">Welcome to `favorite`</span>
+          <button id="demo-menu-lower-right"
+            class="mdl-button mdl-js-button mdl-button--icon">
+            <i class="material-icons">more_vert</i>
+          </button>
+
+          <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu
+            mdl-js-ripple-effect"
+            for="demo-menu-lower-right">
+            <li class="mdl-menu__item" onclick="return logout();">Log out</li>
+          </ul>
         </div>
         <!-- Tabs -->
         <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
