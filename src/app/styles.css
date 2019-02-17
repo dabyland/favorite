@@ -23,6 +23,10 @@ body {
   display: table;
 }
 
+input:valid {
+  border-color: rgb(26, 201, 26);
+}
+
 .submit-button {
   text-align: center;
   vertical-align: bottom;

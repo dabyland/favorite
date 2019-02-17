@@ -38,76 +38,114 @@
       </header>
       <main class="tab-content mdl-layout__content">
         <section class="mdl-layout__tab-panel is-active" id="fixed-tab-1">
-          <div class="page-content">
 
-            <div class="container">
-              <div class="inputs">
-                <form action="home/home.html" class="form" onsubmit="return
-                  postLogin(this);">
-                  <div class="email">
-                    <div class="mdl-textfield mdl-js-textfield">
-                      <input
-                        class="mdl-textfield__input"
-                        type="text"
-                        name="email"
-                        required
-                        pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$">
-                      <label class="mdl-textfield__label">Email</label>
-                    </div>
+          <div class="container">
+            <div class="inputs">
+              <form class="form" onsubmit="return signUp(this);">
+                <div class="email">
+                  <div class="mdl-textfield mdl-js-textfield">
+                    <input
+                      class="mdl-textfield__input"
+                      type="text"
+                      name="email"
+                      autocomplete="email"
+                      required
+                      pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$">
+                    <label class="mdl-textfield__label">Email</label>
                   </div>
-                  <div class="username">
-                    <div class="mdl-textfield mdl-js-textfield">
-                      <input
-                        class="mdl-textfield__input"
-                        type="text"
-                        name="username"
-                        maxlength="15"
-                        required pattern="\w+">
-                      <label class="mdl-textfield__label">Username</label>
-                    </div>
+                </div>
+                <div class="username">
+                  <div class="mdl-textfield mdl-js-textfield">
+                    <input
+                      class="mdl-textfield__input"
+                      type="text"
+                      name="username"
+                      autocomplete="username"
+                      maxlength="15"
+                      required pattern="\w+">
+                    <label class="mdl-textfield__label">Username</label>
                   </div>
-                  <div class="password">
-                    <div class="mdl-textfield mdl-js-textfield">
-                      <input
-                        class="mdl-textfield__input"
-                        type="password"
-                        name="password"
-                        title="Password must contain at least 6 characters and
-                        contain at least one UPPER case character."
-                        maxlength=12
-                        required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
-                        onchange="form.confirmPassword.pattern=
-                        RegExp.escape(this.value);">
-                      <label class="mdl-textfield__label">Password</label>
-                    </div>
+                </div>
+                <div class="password">
+                  <div class="mdl-textfield mdl-js-textfield">
+                    <input
+                      class="mdl-textfield__input"
+                      type="password"
+                      name="password"
+                      autocomplete="new-password"
+                      title="Password must contain at least 6 characters and
+                      contain at least one UPPER case character."
+                      maxlength=12
+                      required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
+                      onchange="form.confirmPassword.pattern=
+                      RegExp.escape(this.value);">
+                    <label class="mdl-textfield__label">Password</label>
                   </div>
-                  <div class="confirm-password">
-                    <div class="mdl-textfield mdl-js-textfield">
-                      <input
-                        class="mdl-textfield__input"
-                        type="password"
-                        title="Passwords must match"
-                        name="confirmPassword"
-                        required
-                        onchange="this.setCustomValidity(this.validity.patternMismatch
-                        ? this.title : '');">
-                      <label class="mdl-textfield__label">Confirm Password</label>
-                    </div>
+                </div>
+                <div class="confirm-password">
+                  <div class="mdl-textfield mdl-js-textfield">
+                    <input
+                      class="mdl-textfield__input"
+                      type="password"
+                      title="Passwords must match"
+                      name="confirmPassword"
+                      autocomplete="new-password"
+                      required
+                      onchange="this.setCustomValidity(this.validity.patternMismatch
+                      ? this.title : '');">
+                    <label class="mdl-textfield__label">Confirm Password</label>
                   </div>
-                  <div class="submit-button">
-                    <button class="mdl-button mdl-button--colored mdl-js-button
-                      mdl-js-ripple-effect">
-                      Sign Up
-                    </button>
-                  </div>
-                </form>
-              </div>
+                </div>
+                <div class="submit-button">
+                  <button class="mdl-button mdl-button--colored mdl-js-button
+                    mdl-js-ripple-effect">
+                    Sign Up
+                  </button>
+                </div>
+              </form>
             </div>
 
           </div>
         </section>
         <section class="mdl-layout__tab-panel" id="fixed-tab-2">
-          <div class="page-content">Content 2</div>
+
+          <div class="container">
+            <div class="inputs">
+              <form class="form" onsubmit="return authenticateUser(this);">
+                <div class="username">
+                  <div class="mdl-textfield mdl-js-textfield">
+                    <input
+                      class="mdl-textfield__input"
+                      type="text"
+                      name="username"
+                      autocomplete="username"
+                      maxlength="15"
+                      required pattern="\w+">
+                    <label class="mdl-textfield__label">Username</label>
+                  </div>
+                </div>
+                <div class="password">
+                  <div class="mdl-textfield mdl-js-textfield">
+                    <input
+                      class="mdl-textfield__input"
+                      type="password"
+                      name="password"
+                      autocomplete="new-password"
+                      required
+                      maxlength=12>
+                    <label class="mdl-textfield__label">Password</label>
+                  </div>
+                </div>
+                <div class="submit-button">
+                  <button class="mdl-button mdl-button--colored mdl-js-button
+                    mdl-js-ripple-effect">
+                    Login
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
         </section>
       </main>
     </div>

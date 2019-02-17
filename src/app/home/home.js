@@ -12,7 +12,6 @@ function renderGalleryItem(randomNumber){
 
     // Cache image returned from response
     cachedGallery.src = response.url;
-    console.log(cachedGallery);
 
     $(".photos").gallerify();
     $(".photos").append(galleryItem);
