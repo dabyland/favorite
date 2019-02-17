@@ -1,5 +1,5 @@
 const APP_PREFIX = 'Favorite_' // Identifier for this app (this needs to be consistent across every cache update)
-const VERSION = 'version_01' // Version of the off-line cache (change this value everytime you want to update cache)
+const VERSION = 'version_01' // Version of the off-line cache (change this value every time you want to update cache)
 const CACHE_NAME = APP_PREFIX + VERSION
 const IMAGE_CACHE = 'IMAGE_CACHE'
 const URLS = [
@@ -8,7 +8,6 @@ const URLS = [
   '/src/app/styles.css',
   '/src/app/home/home.html',
   '/src/app/home/home.js',
-  '/src/app/home/service-worker.js',
   '/src/app/home/styles.css'
 ]
 
