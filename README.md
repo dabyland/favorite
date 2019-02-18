@@ -1,6 +1,6 @@
 # favorite
 
-"favorite" is an app that allows you to sign up, login, retrieve random images from https://unsplash.com/, and choose your favorites!
+"favorite" is an app that allows you to sign up, login, retrieve random images from https://unsplash.com/, and choose your favorites! It also is available for offline use after your first visit through caching your loaded images and HTML pages!
 
 # Running locally
 
