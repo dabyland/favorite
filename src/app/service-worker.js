@@ -17,28 +17,19 @@ self.addEventListener('fetch', event => {
 
   if (requestUrl.pathname.includes('/photo')) {
     event.respondWith(
-      // Check the cache if a jpeg is cached already
       caches.match(event.request)
         .then(response => {
           if (response) {
             return response
           }
-          // Fetch the jpeg from server and store it in cache
-
-          // We should not touch the original request object that will used by browser
-          // so we need to clone the request.
           let fetchRequest = event.request.clone()
 
           // Send request to server for resource
           return fetch(fetchRequest)
             .then(response => {
-              // return when the request is not fulfilled or request is not a same origin
               if (!response) {
                 return response
               }
-
-              // we should not touch the original response object that will send to browser
-              // so need to clone the response.
               let cacheResponse = response.clone()
 
               // open the cache and save the jpeg file against it's request
@@ -54,10 +45,12 @@ self.addEventListener('fetch', event => {
   console.log('fetch request: ' + event.request.url)
   event.respondWith(
     caches.match(event.request).then(request => {
-      if (request) { // if cache is available, respond with cache
+      if (request) { 
+        // if cache is available, respond with cache
         console.log('responding with cache: ' + event.request.url)
         return request
-      } else { // if there are no cache, try fetching request
+      } else { 
+        // if there are no cache, try fetching request
         console.log('file is not cached, fetching: ' + event.request.url)
         return fetch(event.request)
       }
@@ -81,7 +74,7 @@ self.addEventListener('activate', event => {
     caches.keys().then(keyList => {
       // `keyList` contains all cache names under your username.github.io
       // filter out ones that has this app prefix to create white list
-      var cacheWhitelist = keyList.filter(key => {
+      let cacheWhitelist = keyList.filter(key => {
         return key.indexOf(APP_PREFIX)
       })
       // add current cache name to white list
