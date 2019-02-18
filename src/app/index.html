@@ -25,8 +25,14 @@
   <body>
     <script>
     // register ServiceWorker, remember to use absolute path!
-    if (navigator.serviceWorker) {
+    if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
+      if (navigator.serviceWorker) {
       navigator.serviceWorker.register('/src/app/service-worker.js', { scope: '/src/app/' })
+    }
+    } else {
+      if (navigator.serviceWorker) {
+        navigator.serviceWorker.register('/favorite/src/app/service-worker.js', { scope: '/favorite/src/app/' })
+      }
     }
     </script>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header

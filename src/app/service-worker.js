@@ -2,14 +2,26 @@ const APP_PREFIX = 'Favorite_' // Identifier for this app (this needs to be cons
 const VERSION = 'version_01' // Version of the off-line cache (change this value every time you want to update cache)
 const CACHE_NAME = APP_PREFIX + VERSION
 const IMAGE_CACHE = 'IMAGE_CACHE'
-const URLS = [
-  '/src/app/index.html',
-  '/src/app/index.js',
-  '/src/app/styles.css',
-  '/src/app/home/home.html',
-  '/src/app/home/home.js',
-  '/src/app/home/styles.css'
-]
+let URLs;
+if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
+  URLS = [
+    '/src/app/index.html',
+    '/src/app/index.js',
+    '/src/app/styles.css',
+    '/src/app/home/home.html',
+    '/src/app/home/home.js',
+    '/src/app/home/styles.css'
+  ]
+} else {
+  URLS = [
+    '/favorite/src/app/index.html',
+    '/favorite/src/app/index.js',
+    '/favorite/src/app/styles.css',
+    '/favorite/src/app/home/home.html',
+    '/favorite/src/app/home/home.js',
+    '/favorite/src/app/home/styles.css'
+  ]
+}
 
 // Respond with cached resources
 self.addEventListener('fetch', event => {
